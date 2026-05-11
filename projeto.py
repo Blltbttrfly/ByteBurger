@@ -3,7 +3,7 @@ itens = ["X-Burguer", "X-Salada", "Fritas", "Refrigerante", "Suco", "Sorvete"]
 precos = [18.50, 21.00, 9.00, 6.50, 7.00, 8.00 ] 
 
 clientes = []
-total_faturamento = []
+total_faturamento = 0
 
 
 while True:
@@ -35,15 +35,19 @@ while True:
     print(f"COMANDA DE {cliente}") # Etapa 5 
     for j, p in enumerate(item_cliente):
         print(f"{j+1} - {p} ........... R$ {valor_pedido[j]:.2f}")
-        print(f"Total: R$ {sum(valor_pedido):.2f}")
+    print()
+    print(f"Total: R$ {sum(valor_pedido):.2f}")
 
-        total_faturamento += precos[pedidos-1]
+    total_faturamento += sum(valor_pedido)
 
-    acabar = input("Finalizar o pedido?: ")
-    if acabar.upper == "FIM":
+    acabar = input("Finalizar o programa?: ")
+    if acabar.upper() == "SIM":
         break
-
+print()
 print(f"""
-Número de clientes atendidos: 
-{len(clientes)}
-""")    
+Número de clientes atendidos: """) 
+print(len(clientes))
+print(f"""
+Total faturamento: """)
+print(total_faturamento)
+print()
